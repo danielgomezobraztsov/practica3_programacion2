@@ -55,7 +55,7 @@ public class Graph<V> {
         return adjacencyList.containsKey(v);
     }
 
-    @Override
+    /*@Override
     public String toString(){
 
         StringBuilder sb = new StringBuilder();
@@ -68,7 +68,7 @@ public class Graph<V> {
             sb.append("\n");
         }
         return sb.toString();
-    }
+    }*/
 
     public List<V> onePath(V v1, V v2){
         Map<V, V> trace = new HashMap<>();
