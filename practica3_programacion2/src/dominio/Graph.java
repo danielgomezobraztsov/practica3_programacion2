@@ -1,8 +1,7 @@
 package dominio;
+import org.junit.Assert;
 import org.junit.Test;
 import java.util.*;
-
-import static org.junit.Assert.assertEquals;
 
 public class Graph<V> {
     //Lista de adyacencia.
@@ -19,13 +18,11 @@ public class Graph<V> {
     }
 
     public boolean addEdge(V v1, V v2){
-        boolean v1Exists = adjacencyList.containsKey(v1);
-        boolean v2Exists = adjacencyList.containsKey(v2);
 
-        if (!v1Exists) {
+        if (!adjacencyList.containsKey(v1)) {
             addVertex(v1);
         }
-        if (!v2Exists) {
+        if (!adjacencyList.containsKey(v2)) {
             addVertex(v2);
         }
 
@@ -55,7 +52,7 @@ public class Graph<V> {
         return adjacencyList.containsKey(v);
     }
 
-    /*@Override
+    @Override
     public String toString(){
 
         StringBuilder sb = new StringBuilder();
@@ -68,7 +65,7 @@ public class Graph<V> {
             sb.append("\n");
         }
         return sb.toString();
-    }*/
+    }
 
     public List<V> onePath(V v1, V v2){
         Map<V, V> trace = new HashMap<>();
@@ -125,6 +122,8 @@ public class Graph<V> {
         expectedPath.add(6);
         expectedPath.add(4);
         //Se comprueba si el camino devuelto es igual al esperado.
-        assertEquals(expectedPath, g.onePath(1, 4));
+        Assert.assertEquals(expectedPath, g.onePath(1, 4));
+        System.out.println(g.onePath(1, 4));
     }
 }
+
